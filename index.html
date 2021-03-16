@@ -1,38 +1,46 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>After The Storm</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <div class="jumbotron text-center">
-          <h1 class="display-3">Check the forecast</h1>
-          <p class="lead">coat or shorts? Lets find out</p>
-          <hr class="my-2">
-          <div>
-            <h3>Search for a City:</h3>
-            <input type="text" class="form-control" placeholder="Enter City Here" id="cityInput"
-                        aria-label="Example text with button addon" aria-described-by="searchBtn">
-                        <button type="button" class="btn btn-outline-primary">Search</button>
-          </div>
-      </div>
-      <div>
-        <h2>Current Weather:</h2>
-        <div class="container" id="currentWeather">
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>5-Day Forecast</title>
+</head>
 
-        <h2>Five Day Forecast:</h2>
-        <div class="card-deck" id="fiveDayForecast">
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                <div id="formCol" class="form-group form mt-3 ml-3">
+                    <label class="h5">Search City by name: </label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="" id="searchResponse" aria-describedby="helpId"
+                            placeholder="">
+                        <div class="input-group-append">
+                            <div id="Search"></div>
+                            <span id="current-search"></span>
+                        </div>
+                    </div>
+                    <ul id="cities"></ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-10 pl-5">
+                <div class="weather"> </div>
+                <h1 id="city"></h1>
+                <div id="weatherForecast"></div>
+                <div id="uvi"></div>
+                <div id="forecastHeader" class="pt-3 h2"></div>
+                <div id="forecast" class="row forecast p-3"></div>
+            </div>
         </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>
