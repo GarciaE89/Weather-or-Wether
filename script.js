@@ -6,7 +6,7 @@ var forecastURL = "https://api.openweathermap.org/data/2.5/onecall?"
 
 var now = moment()
 
-var currentDay = (now.format("l"));
+var currentDay = (now.format("ll"));
 
 function createWeatherDiv() {
     var weather = document.getElementById("weatherForecast")
@@ -14,4 +14,45 @@ function createWeatherDiv() {
     weatherDiv.className = "weatherDiv";
     weather.append(weatherDiv);
 }
+
+var searchId = document.getElementById("Search")
+var searchBtn = document.createElement("button");
+searchBtn.className = "button btn btn-secondary";
+var searchIcon = document.createElement("i")
+searchIcon.className = "fas fa-search";
+searchBtn.append(searchIcon);
+searchId.append(searchBtn);
+var searchHistoryList = document.getElementById("cities");
+var searchHistory = JSON.parse(localStorage.getItem("cities")) || []
+var currentSearch = document.getElementById("currentSearch");
+
+function renderSearchHistory() {
+    searchHistoryList.innerHTML = "";
+    for (let citiesSearched = 0; citiesSearched < searchHistory.length; citiesSearched++) {
+        addCityDiv(searchHistory[citiesSearched])
+    }
+}
+
+function addCityDiv(searchText) {
+    var cities = document.createElement("div");
+    cities.textContent = searchText;
+    cities.addEventListener("click", function () {
+        getCity(this.textContent)
+    })
+    searchHistoryList.append(cities);
+}
+
+searchBtn.addEventListener("click", function () {
+    var city = document.getElementById("searchResponse").value.trim()
+    if (city == "") {
+        alert("Provide city name!");
+    }
+    else {
+        searchHistory = searchHistory.filter(elem => city !== elem)
+        searchHistory.unshift(city);
+        searchHistory.splice(8);
+        localStorage.setItem("cities", JSON.stringify(searchHistory));
+        renderSearchHistory()
+    }
+})
 
