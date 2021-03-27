@@ -58,7 +58,7 @@ searchBtn.addEventListener("click", function () {
 renderSearchHistory()
 
 function createCurrentWeatherAPIParameters(city) {
-    return "q=" + city + "&appid=" + currentCityURL;
+    return "q=" + city + "&appid=" + openWeatherApi;
 }
 function createForecastAPIParameters(coord) {
     return "lat=" + coord.lat + "&lon=" + coord.lon + "&exclude=current,minutely,hourly,alerts&appid=" + openWeatherApi;
